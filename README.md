@@ -1,17 +1,39 @@
-# Quadcopter calculation
+# **Gesture Controlled Quadcopter**
 
-# Gesture Recognisation 
+## **Table of Contents** 
+- [**Gesture Controlled Quadcopter**](#gesture-controlled-quadcopter)
+  - [**Table of Contents:**](#table-of-contents)
+  - [**Objective**](#objective)
+  - [**Gesture Recognisation**](#gesture-recognisation)
+  - [**Command Scripting**](#command-scripting)
+  - [**Setup's and Running**](#setup-and-running)
+    - [**SITL Setup**](#sitl-setup)
+      - [**Ground Control Station**](#ground-control-station)
+      - [**Ubuntu 22.04.5 LTS**](#ubuntu-22045-lts)
+      - [**Python 3.10.11**](#python-31011)
+      - [**Ardupilot**](#ardupilot)
+      - [**Configure ArduPilot Firmware**](#configure-ardupilot-firmware)
+    - [**Gazeebo Setup**](#gazeebo-setup)
+      - [**ArduCopter**](#arducopter)
+      - [**ArduCopter Gazebo Plugin**](#arducopter-gazebo-plugin)
+    - [**Simulation Run**](#simulation-run)
+  - [**Test Flight Result**](#test-flight-result)
+      
 
-# Command Scripting
 
-# Setup's and Running.
-## SITL Setup
+## **Objective**
+## **Gesture Recognisation** 
+
+## **Command Scripting**
+
+## **Setup and Running**
+### **SITL Setup**
 Install Requirements: 
-### Ground Control Station
+#### **Ground Control Station**
  Mission Planner: https://ardupilot.org/planner/docs/mission-planner-installation.html#windows-installation 
-### Ubuntu 22.04.5 LTS
+#### **Ubuntu 22.04.5 LTS**
 https://releases.ubuntu.com/jammy/
-### Python 3.10.11
+#### **Python 3.10.11**
 
 ```
 sudo apt install -y software-properties-common build-essential zlib1g-dev \
@@ -37,7 +59,7 @@ make -j$(nproc)
 sudo make altinstall
 ```
 
-### ArduPilot 
+#### **ArduPilot** 
 Run the following commands to clone the official GitHub Repo of ArduPilot.
 ```
 git clone https://github.com/ArduPilot/ardupilot.git
@@ -53,7 +75,7 @@ Follow the Default Installation Instructions.
 Wait till installation to complete.
 This step will create a virtual enviornment (venv-ardupilot) in Home Directory where all the dependencies Would be install.
 
-### Configure ArduPilot Firmware
+#### **Configure ArduPilot Firmware**
 :warning: Activate the Virtual Enviornment Before Running These Coommands.
 Move to ardupilot Directory before running the following commands
 ```
@@ -71,8 +93,8 @@ Test Run:
 ```
 Restart the terminal and try running sim_vehicle.py
 
-## Gazeebo Setup 
-### ArduCopter 
+### **Gazeebo Setup** 
+#### **ArduCopter** 
 SITL Supports Gazebo Harmonic (Outdated as of now but works well)
 Run this instructions in the order
  Exit Virtual Enviornment Before this Setup
@@ -89,7 +111,7 @@ sudo apt-get update
 sudo apt-get install gz-harmonic
 ```
 
-### ArduCopter Gazebo Plugin
+#### **ArduCopter Gazebo Plugin**
 ```
 sudo apt update
 sudo apt install libgz-sim8-dev rapidjson-dev
@@ -112,7 +134,7 @@ echo 'export GZ_SIM_RESOURCE_PATH=$HOME/gz_ws/src/ardupilot_gazebo/models:$HOME/
 ```
 
 
-## Simulation Run
+### **Simulation Run**
 
 Run all the applications in order all in new terminal. 
 1. Gazebo 
@@ -134,7 +156,7 @@ python3 quad.py
 
 
 
-# Test Flight.
+## **Test Flight Result**
 <table>
   <tr>
     <td align="center">
