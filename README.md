@@ -1,41 +1,8 @@
-# Basics of Aerodynamics
-
-# Quadcopter Movements
-
 # Quadcopter calculation
 
 # Gesture Recognisation 
 
 # Command Scripting
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # SITL Setup
 Install Requirements: 
