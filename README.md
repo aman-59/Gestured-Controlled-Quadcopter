@@ -164,8 +164,34 @@ cd Gestured-Controlled-Quadcopter
 python3 quad.py
 ```
 
-# Quadcopter assembly and Setup 
 
 
 # Test Flight.
-
+<table>
+  <tr>
+    <td align="center">
+      <h4>Forward</h4>
+      <img src="media/forward.gif" alt="Forward Gesture" width="100%">
+    </td>
+    <td align="center">
+      <h4>Backward</h4>
+      <img src="media/backward.gif" alt="Backward Gesture" width="100%">
+    </td>
+    <td align="center">
+      <h4>Left</h4>
+      <img src="media/left.gif" alt="Left Turn Gesture" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h4>Right</h4>
+      <img src="media/right.gif" alt="Right Turn Gesture" width="100%">
+    </td>
+    <td align="center">
+      <h4>LAND</h4>
+      <img src="media/land.gif" alt="Land Gesture" width="100%">
+    </td>
+    <td width="33%">
+      </td>
+  </tr>
+</table>
