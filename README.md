@@ -1,13 +1,81 @@
-# ArduCopter SITL Setup
+# Basics of Aerodynamics
 
-## Clone the Repository
+# Quadcopter Movements
+
+# Quadcopter calculation
+
+# Gesture Recognisation 
+
+# Command Scripting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SITL Setup
+Install Requirements: 
+## Ground Control Station
+ Mission Planner: https://ardupilot.org/planner/docs/mission-planner-installation.html#windows-installation 
+## Ubuntu 22.04.5 LTS
+https://releases.ubuntu.com/jammy/
+## Python 3.10.11
+
+```
+sudo apt install -y software-properties-common build-essential zlib1g-dev \
+libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev \
+libffi-dev libsqlite3-dev wget libbz2-dev
+```
+```
+cd /tmp    
+wget https://www.python.org/ftp/python/3.10.11/Python- 3.10.11.tgz
+```
+
+```
+tar -xvf Python-3.10.11.tgz
+cd Python-3.10.11
+```
+
+```
+ ./configure --enable-optimizations
+```
+
+```
+make -j$(nproc)
+sudo make altinstall
+```
+
+## ArduPilot 
 Run the following commands to clone the official GitHub Repo of ArduPilot.
 ```
 git clone https://github.com/ArduPilot/ardupilot.git
 cd ardupilot
 git submodule update --init --recursive
 ```
-## Install dependencies
 Run the Following Commands inside the ardupilot directory
 ```
 cd Tools/environment_install
@@ -15,8 +83,9 @@ cd Tools/environment_install
 ```
 Follow the Default Installation Instructions.
 Wait till installation to complete.
-This step will create a virtual enviornment (venv-ardupilot) in Home Directory where all the dependencies Would be install. 
-## Configure the ArduPilot Firmware
+This step will create a virtual enviornment (venv-ardupilot) in Home Directory where all the dependencies Would be install.
+
+## Configure ArduPilot Firmware
 :warning: Activate the Virtual Enviornment Before Running These Coommands.
 Move to ardupilot Directory before running the following commands
 ```
@@ -25,30 +94,26 @@ Move to ardupilot Directory before running the following commands
 ```
 ./waf copter
 ```
-## Test the SITL
+
+Test Run:
+
 ```
 ./Tools/autotest/sim_vehicle.py -v ArduCopter --console 
 
 ```
-## Add to path (Optional)
-```
-sudo nano ./bashrc
-```
-Add the following lines at the end of file
-```
-export PATH=$PATH:"Path to autotest folder"
-
-```
 Restart the terminal and try running sim_vehicle.py
 
-## Gazebo Setup
-ArduCopter SITL Supports Gazebo Harmonic (Outdated as of now but works well)
+# Gazeebo Setup 
+## ArduCopter 
+SITL Supports Gazebo Harmonic (Outdated as of now but works well)
 Run this instructions in the order
-:warning: Exit Virtual Enviornment Before this Setup
+ Exit Virtual Enviornment Before this Setup
+ 
 ```
 sudo apt-get update
-sudo apt-get install curl lsb-release gnupg
+sudo apt-get install curl lsb-release gnupg 
 ```
+
 ```
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
@@ -56,7 +121,7 @@ sudo apt-get update
 sudo apt-get install gz-harmonic
 ```
 
-## Arducopter Gazebo Plugin
+## ArduCopter Gazebo Plugin
 ```
 sudo apt update
 sudo apt install libgz-sim8-dev rapidjson-dev
@@ -78,21 +143,29 @@ echo 'export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/gz_ws/src/ardupilot_gazebo/build:${
 echo 'export GZ_SIM_RESOURCE_PATH=$HOME/gz_ws/src/ardupilot_gazebo/models:$HOME/gz_ws/src/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}' >> ~/.bashrc
 ```
 
-## Sim test
-### Run Gazebo
+
+# Simulation Run
+
+Run all the applications in order all in new terminal. 
+1. Gazebo 
+2. ArduCopter
+3. Command Script
+
 ```
 gz sim -v4 -r iris_runway.sdf
 ```
-### RUN SITL
-:warning: Activate the Virtual Enviornment Before this step
 ```
-sim_vehicle.py -v ArduCopter -f gazebo-iris --model JSON --map --console
+sim_vehicle.py -v ArduCopter -f gazebo-iris --model JSON
 ```
-### Test Connection
-put following commands line by line in SITL Terminal
+
 ```
-mode guided
-arm throttle
-takeoff 5
+git clone https://github.com/aman-59/Gestured-Controlled-Quadcopter.git
+cd Gestured-Controlled-Quadcopter
+python3 quad.py
 ```
+
+# Quadcopter assembly and Setup 
+
+
+# Test Flight.
 
